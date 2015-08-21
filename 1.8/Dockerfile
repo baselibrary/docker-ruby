@@ -9,7 +9,7 @@ RUN \
 ## Install packages
 RUN \
   apt-get update &&\
-  apt-get install -y ruby1.8 ruby1.8-dev &&\
+  apt-get install -y ruby1.8 ruby1.8-dev rubygems1.8 &&\
   rm -rf /var/lib/apt/lists/*
 
 ## Install bundler
