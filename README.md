@@ -1,7 +1,5 @@
 # baselibrary/ruby [![Docker Repository on Quay.io](https://quay.io/repository/baselibrary/ruby/status "Docker Repository on Quay.io")](https://quay.io/repository/baselibrary/ruby)
 
-[![](http://dockeri.co/image/baselibrary/ruby)](https://registry.hub.docker.com/u/baselibrary/ruby/)
-
 ## Installation and Usage
 
     docker pull quay.io/baselibrary/ruby:${VERSION:-latest}
