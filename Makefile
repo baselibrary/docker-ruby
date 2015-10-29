@@ -1,20 +1,27 @@
-NAME = quay.io/baselibrary/ruby
-REPO = git@github.com:baselibrary/docker-ruby.git
-TAGS = 1.8 1.9 2.0 2.1 2.2
+NAME     = baselibrary/ruby
+REPO     = git@github.com:baselibrary/docker-ruby.git
+VERSIONS = $(foreach df,$(wildcard */Dockerfile),$(df:%/Dockerfile=%))
 
 all: build
 
-build: $(TAGS)
+build: $(VERSIONS)
 
-release: $(TAGS)
+release: $(VERSIONS)
 	docker push ${NAME}
+
+update:
+	docker run --rm -v $$(pwd):/work -w /work buildpack-deps ./update.sh
+
+library:
+	docker run --rm -v $$(pwd):/work -w /work buildpack-deps ./generate-stackbrew-library.sh
 
 sync-branches:
 	git fetch $(REPO) master
-	@$(foreach tag, $(TAGS), git branch -f $(tag) FETCH_HEAD;)
-	@$(foreach tag, $(TAGS), git push $(REPO) $(tag);)
-	@$(foreach tag, $(TAGS), git branch -D $(tag);)
+	@$(foreach tag, $(VERSIONS), git branch -f $(tag) FETCH_HEAD;)
+	@$(foreach tag, $(VERSIONS), git push $(REPO) $(tag);)
+	@$(foreach tag, $(VERSIONS), git branch -D $(tag);)
 
-.PHONY: $(TAGS)
-$(TAGS):
-	docker build -t $(NAME):$@ $@
+
+.PHONY: all build library $(VERSIONS)
+$(VERSIONS):
+	docker build --rm -t $(NAME):$@ $@
