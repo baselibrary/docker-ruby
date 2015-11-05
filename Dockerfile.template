@@ -1,9 +1,9 @@
-FROM baselibrary/ubuntu:14.04
+FROM baselibrary/baseimage:1.0.0
 MAINTAINER ShawnMa <qsma@thoughtworks.com>
 
 ## Version
-ENV RUBY_MAJOR %%RUBY_MAJOR%%
-ENV RUBY_VERSION %%RUBY_VERSION%%
+ENV MAJOR   %%MAJOR%%
+ENV VERSION %%VERSION%%
 
 ## Repository
 RUN \
@@ -13,7 +13,7 @@ RUN \
 ## Packages
 RUN \
   apt-get update &&\
-  apt-get install -y %%RUBY_PACKAGE%%=$RUBY_VERSION %%RUBY_PACKAGE%%-dev %%RUBY_RUBYGEMS%% &&\
+  apt-get install -y %%PACKAGE%%=$VERSION %%PACKAGE%%-dev %%RUBYGEMS%% &&\
   rm -rf /var/lib/apt/lists/*
 
 ## Additional

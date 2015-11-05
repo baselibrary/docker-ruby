@@ -1,9 +1,9 @@
-FROM baselibrary/ubuntu:14.04
+FROM baselibrary/baseimage:1.0.0
 MAINTAINER ShawnMa <qsma@thoughtworks.com>
 
 ## Version
-ENV RUBY_MAJOR 1.9
-ENV RUBY_VERSION 1:1.9.3.551-2bbox1~trusty1
+ENV MAJOR   1.9
+ENV VERSION 1:1.9.3.551-2bbox1~trusty1
 
 ## Repository
 RUN \
@@ -13,7 +13,7 @@ RUN \
 ## Packages
 RUN \
   apt-get update &&\
-  apt-get install -y ruby1.9.1=$RUBY_VERSION ruby1.9.1-dev  &&\
+  apt-get install -y ruby1.9.1=$VERSION ruby1.9.1-dev  &&\
   rm -rf /var/lib/apt/lists/*
 
 ## Additional

@@ -1,9 +1,9 @@
-FROM baselibrary/ubuntu:14.04
+FROM baselibrary/baseimage:1.0.0
 MAINTAINER ShawnMa <qsma@thoughtworks.com>
 
 ## Version
-ENV RUBY_MAJOR 2.1
-ENV RUBY_VERSION 2.1.7-1bbox1~trusty1
+ENV MAJOR   2.1
+ENV VERSION 2.1.7-1bbox1~trusty1
 
 ## Repository
 RUN \
@@ -13,7 +13,7 @@ RUN \
 ## Packages
 RUN \
   apt-get update &&\
-  apt-get install -y ruby2.1=$RUBY_VERSION ruby2.1-dev  &&\
+  apt-get install -y ruby2.1=$VERSION ruby2.1-dev  &&\
   rm -rf /var/lib/apt/lists/*
 
 ## Additional

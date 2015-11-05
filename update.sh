@@ -27,10 +27,10 @@ for version in "${versions[@]}"; do
 	(
 		set -x
 		sed '
-			s/%%RUBY_MAJOR%%/'"$version"'/g;
-			s/%%RUBY_VERSION%%/'"$fullVersion"'/g;
-			s!%%RUBY_PACKAGE%%!'"$package"'!g;
-      s!%%RUBY_RUBYGEMS%%!'"$rubygems"'!g;
+			s/%%MAJOR%%/'"$version"'/g;
+			s/%%VERSION%%/'"$fullVersion"'/g;
+			s!%%PACKAGE%%!'"$package"'!g;
+      s!%%RUBYGEMS%%!'"$rubygems"'!g;
 		' Dockerfile.template > "$version/Dockerfile"
 	)
 done
