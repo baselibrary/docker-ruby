@@ -2,8 +2,8 @@ FROM baselibrary/baseimage:1.0.0
 MAINTAINER ShawnMa <qsma@thoughtworks.com>
 
 ## Version
-ENV RUBY_MAJOR   2.2
-ENV RUBY_VERSION 2.2.4-1bbox1~trusty1
+ENV RUBY_MAJOR   2.3
+ENV RUBY_VERSION 2.3.0-1bbox2~trusty1
 
 ## Repository
 RUN \
@@ -13,7 +13,7 @@ RUN \
 ## Packages
 RUN \
   apt-get update &&\
-  apt-get install -y ruby2.2=$RUBY_VERSION ruby2.2-dev  &&\
+  apt-get install -y ruby2.3=$RUBY_VERSION ruby2.3-dev  &&\
   rm -rf /var/lib/apt/lists/*
 
 ## Additional
