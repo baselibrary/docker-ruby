@@ -16,8 +16,3 @@ RUN \
   apt-get install -y ruby1.9.1=$RUBY_VERSION ruby1.9.1-dev  &&\
   rm -rf /var/lib/apt/lists/*
 
-## Additional
-RUN \
-  gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/ &&\
-  gem install rake bundler --no-rdoc --no-ri
-

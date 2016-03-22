@@ -16,8 +16,3 @@ RUN \
   apt-get install -y ruby1.8=$RUBY_VERSION ruby1.8-dev rubygems1.8 &&\
   rm -rf /var/lib/apt/lists/*
 
-## Additional
-RUN \
-  gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/ &&\
-  gem install rake bundler --no-rdoc --no-ri
-

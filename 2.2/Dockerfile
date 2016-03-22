@@ -16,8 +16,3 @@ RUN \
   apt-get install -y ruby2.2=$RUBY_VERSION ruby2.2-dev  &&\
   rm -rf /var/lib/apt/lists/*
 
-## Additional
-RUN \
-  gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/ &&\
-  gem install rake bundler --no-rdoc --no-ri
-
