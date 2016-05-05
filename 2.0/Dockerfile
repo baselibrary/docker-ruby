@@ -3,7 +3,7 @@ MAINTAINER ShawnMa <qsma@thoughtworks.com>
 
 ## Version
 ENV RUBY_MAJOR   2.0
-ENV RUBY_VERSION 2.0.0.647-1bbox1~trusty1
+ENV RUBY_VERSION 2.0.0.648-1bbox1~trusty1
 
 ## Repository
 RUN \
@@ -15,9 +15,4 @@ RUN \
   apt-get update &&\
   apt-get install -y ruby2.0=$RUBY_VERSION ruby2.0-dev  &&\
   rm -rf /var/lib/apt/lists/*
-
-## Additional
-RUN \
-  gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/ &&\
-  gem install rake bundler --no-rdoc --no-ri
 
