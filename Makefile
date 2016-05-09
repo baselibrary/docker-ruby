@@ -1,6 +1,6 @@
 NAME     = baselibrary/ruby
 REPO     = git@github.com:baselibrary/docker-ruby.git
-REGISTRY = thoughtworks.ga
+REGISTRY = thoughtworks.io
 VERSIONS = $(foreach df,$(wildcard */Dockerfile),$(df:%/Dockerfile=%))
 
 all: build 
