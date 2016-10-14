@@ -3,7 +3,7 @@ MAINTAINER ShawnMa <qsma@thoughtworks.com>
 
 ## Version
 ENV RUBY_MAJOR   2.3
-ENV RUBY_VERSION 2.3.0-1bbox2~trusty1
+ENV RUBY_VERSION 2.3.1-1bbox1~trusty1
 
 ## Repository
 RUN \
