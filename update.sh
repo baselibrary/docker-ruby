@@ -10,19 +10,19 @@ fi
 versions=( "${versions[@]%/}" )
 
 
-for version in "${versions[@]}"; do	
+for version in "${versions[@]}"; do
   if [ "${version}" == "1.8" ]; then
     fullGems="rubygems1.8"
     fullPackage="ruby1.8"
-    fullVersion="$(curl -fsSL "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu/dists/trusty/main/binary-amd64/Packages.gz" | gunzip | awk -v pkgname=$fullPackage -F ': ' '$1 == "Package" { pkg = $2 } pkg == pkgname && $1 == "Version" { print $2 }' | sort -rV | head -n1 )"
+    fullVersion="$(curl -fsSL "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu/dists/xenial/main/binary-amd64/Packages.gz" | gunzip | awk -v pkgname=$fullPackage -F ': ' '$1 == "Package" { pkg = $2 } pkg == pkgname && $1 == "Version" { print $2 }' | sort -rV | head -n1 )"
   elif [ "${version}" == "1.9" ]; then
     fullGems=""
   	fullPackage="ruby1.9.1"
-    fullVersion="$(curl -fsSL "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu/dists/trusty/main/binary-amd64/Packages.gz" | gunzip | awk -v pkgname=$fullPackage -F ': ' '$1 == "Package" { pkg = $2 } pkg == pkgname && $1 == "Version" { print $2 }' | sort -rV | head -n1 )"
+    fullVersion="$(curl -fsSL "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu/dists/xenial/main/binary-amd64/Packages.gz" | gunzip | awk -v pkgname=$fullPackage -F ': ' '$1 == "Package" { pkg = $2 } pkg == pkgname && $1 == "Version" { print $2 }' | sort -rV | head -n1 )"
   else
     fullGems=""
   	fullPackage="ruby${version}"
-    fullVersion="$(curl -fsSL "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu/dists/trusty/main/binary-amd64/Packages.gz" | gunzip | awk -v pkgname=$fullPackage -F ': ' '$1 == "Package" { pkg = $2 } pkg == pkgname && $1 == "Version" { print $2 }' | sort -rV | head -n1 )"
+    fullVersion="$(curl -fsSL "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu/dists/xenial/main/binary-amd64/Packages.gz" | gunzip | awk -v pkgname=$fullPackage -F ': ' '$1 == "Package" { pkg = $2 } pkg == pkgname && $1 == "Version" { print $2 }' | sort -rV | head -n1 )"
 	fi
 	(
 		set -x
@@ -34,4 +34,3 @@ for version in "${versions[@]}"; do
 		' Dockerfile.template > "$version/Dockerfile"
 	)
 done
-
